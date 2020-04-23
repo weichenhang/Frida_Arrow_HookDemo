@@ -6,7 +6,7 @@ Created on Tue Mar 24 03:46:25 2020
 """
 
 import frida, sys
-
+#HOOK so 文件
 jscode = """
 setImmediate(function () {
     send("start");
