@@ -7,7 +7,7 @@ Created on Sun Mar 22 02:07:26 2020
 
 import frida, sys
 
-#一个函数中调用另一个函数(这个功能暂时还未实现)
+#实例化类并调用其方法
 jscode = """
 if(Java.available){
     Java.perform(function(){
@@ -17,11 +17,9 @@ if(Java.available){
             console.log("param : " + num);
             var instance = util.$new();//根据类实例化一个对象
             console.log("instance : " + instance);
-            int result = instance.func();
-            //int result = this.func2(num);
-            //console.log("func2 result : "+result);
-            //return result;
-            return 55;
+            var result = instance.func1(12);
+            console.log("Util func1 : " + result);
+            return num + result;
         }
     });
 }
