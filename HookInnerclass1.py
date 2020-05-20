@@ -7,7 +7,7 @@ Created on Wed May 20 14:58:48 2020
 
 import frida, sys
 
-#HOOK 匿名内部类1
+#HOOK 匿名内部类1(直接到内部类的路径,根据包名+类名来hook,这种方法作用域比较广，项目中任何调用这个方法的地方都会被hook住)
 jscode = """
 if(Java.available){
     Java.perform(function(){

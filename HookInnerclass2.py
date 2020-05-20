@@ -7,7 +7,7 @@ Created on Wed May 20 14:58:48 2020
 
 import frida, sys
 
-#HOOK 匿名内部类 2
+#HOOK 匿名内部类 2 (根据调用方法所在的类,然后找到内部类的序列号来hook,作用域只限这一处)
 jscode = """
 if(Java.available){
     Java.perform(function(){
