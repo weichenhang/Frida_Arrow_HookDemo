@@ -32,6 +32,7 @@ setImmediate(function () {
     }
     
     //通过模块名直接查找基址
+    //在静态分析中获取到偏移地址,把偏移地址传进去(注:thumb指令填入偏移地址时要+1)
     var baseSOFile = Module.findBaseAddress("libnative-lib.so");
     Interceptor.attach(baseSOFile.add(0x000093C9),{
         onEnter: function(args) {
