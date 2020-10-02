@@ -7,12 +7,12 @@ Created on Fri Jun 12 13:41:26 2020
 
 import frida, sys
 
-#实例化类并调用其方法
+#hook单例里的方法
 jscode = """
 if(Java.available){
     Java.perform(function(){
         var Singleton = Java.use("com.my.fridademo.MySingleton");//获取到类
-        var util = Singleton.getInstance();//获取到类
+        var util = Singleton.getInstance();//调用单例方法初始化一个对象
         util.post.overload("java.lang.String").implementation = function(param){
             var result = util.post(param);
             console.log("param : " + param);
